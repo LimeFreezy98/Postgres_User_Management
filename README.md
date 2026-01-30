@@ -4,7 +4,7 @@
 put username, host, database, password and port 
 
 
-node --watch 
+npm run dev
 
 
 
