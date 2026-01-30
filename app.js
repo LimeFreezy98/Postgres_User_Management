@@ -1,14 +1,24 @@
 const express = require("express");
-
+const { Pool } = require("pg");
 
 const app = express();
-const port = process.env.PORT || 3020;
-app.use(express.json());
+const port = process.env.PORT || 3020; 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static("public"))
 
-
+// temporary postgress connection
+const dbconnectionstring = process.env.DB_URL;
+console.log(dbconnectionstring)
+const pool = new Pool({
+  connectionString: dbconnectionstring,
+  // user: "postgres",
+  // host: "localhost",
+  // database: "user_postgres",
+  // password: "postgres",   //YOUR_PASSWORD
+  // port: 5432,
+})  
 
 
 
